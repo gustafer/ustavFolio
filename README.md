@@ -37,4 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## lanyard stuff discord
 
-[![Discord Presence](https://lanyard.cnrad.dev/api/:id)](https://discord.com/users/:801073563368947742)
+[![Discord Presence](https://lanyard.cnrad.dev/api/:801073563368947742)](https://discord.com/users/:801073563368947742)
