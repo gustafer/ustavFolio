@@ -12,10 +12,18 @@ export default function Lanyard() {
     const lastActivity = useMemo(() => data?.activities[0], [data]);
 
     if (isLoading) return <>
-            <span className="loading loading-ring w-24"></span></>;
+        <span className="loading loading-ring w-24"></span></>;
 
-    if (!data || !lastActivity) return <h2 className="flex flex-inline text-1xl">Ustav is now offline :c</h2>;
+    if (!lastActivity)
+        return
+    <>
+        <h2 className="flex flex-inline text-1xl">Ustav is online, but doing nothing!</h2>
+    </>;
 
+    if (!data) return
+    <>
+        <h2 className="flex flex-inline text-1xl">Ustav is now offline :c</h2>
+    </>;
     return (
 
         <div className=" ">
