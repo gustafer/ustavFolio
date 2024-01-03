@@ -22,7 +22,7 @@ export default function Lanyard() {
             <div >
                 <div className="">
                     <img src="https://cdn.discordapp.com/avatars/801073563368947742/24d97b5a975d186c42c446a95477e2ff.png?size=512" className="rounded-full h-14 shadow-lg w-14" width="24" height="24" draggable="false" alt="user avatar"></img>
-                    <div className="card card-bordered w-full border-zinc-500 flex justify-end sm: flex-none">
+                    <div className="card card-bordered w-full border-zinc-500 flex sm: flex-none">
                         <h1 className="text-6xl flex justify-center ">{data?.discord_user.global_name}<span className="text-2xl">{data?.discord_status}</span></h1>
                         <h2 className="text-3xl flex justify-center">currently on:</h2>
                         <h2 className="text-3xl flex justify-center">{lastActivity.name}</h2>
