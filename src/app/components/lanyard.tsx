@@ -13,17 +13,12 @@ export default function Lanyard() {
 
     if (isLoading) return <>
         <span className="loading loading-ring w-24"></span></>;
-
-    if (!lastActivity)
-        return
-    <>
-        <h2 className="flex flex-inline text-1xl">Ustav is online, but doing nothing!</h2>
-    </>;
-
-    if (!data) return
-    <>
+    if (!data || !lastActivity) return <>
         <h2 className="flex flex-inline text-1xl">Ustav is now offline :c</h2>
     </>;
+    if (!lastActivity) return <>
+        <h2 className="flex flex-inline text-1xl">Ustav is online! but doing nothing.</h2>
+    </>
     return (
 
         <div className=" ">
