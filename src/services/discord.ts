@@ -13,6 +13,6 @@ export const useDiscordQuery = (userId: string) => {
     return useQuery({
         queryKey: [`discord`, userId],
         queryFn: () => getUserdata(userId),
-        refetchInterval: 5000
+        refetchInterval: 1000
     })
 } 

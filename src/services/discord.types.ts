@@ -20,7 +20,13 @@ interface DiscordResponseDataActivity {
     details: string;
     application_id: string;
     assets: DiscordResponseDataActivityAssets;
+    timestamps: DiscordResponseDataActivityTimeStamps;
 }
+
+interface DiscordResponseDataActivityTimeStamps {
+    start: number;
+}
+
 
 interface DiscordResponseDataActivityAssets {
     large_image: string;

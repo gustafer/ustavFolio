@@ -1,6 +1,7 @@
 import React from "react"
 
 export default function Header() {
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar">
