@@ -97,7 +97,7 @@ export default function Lanyard() {
                         <div className=" text-3xl">Currently on:</div>
                         <div className="flex items-stretch justify-between gap-4 mt-4">
                             <div className="flex-col overflow-hidden relative flex aspect-square w-[77px] items-center pl-14 pr-1 pt-12 pb-1">
-                                <img
+                                {lastActivity.assets?.large_image ? <><img
                                     loading="lazy"
                                     src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.large_image}`}
                                     className="rounded-2xl absolute m-auto w-full inset-0"
@@ -107,6 +107,15 @@ export default function Lanyard() {
                                     src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.small_image}`}
                                     className="rounded-full absolute  w-6 shadow-sm  top-14 overflow-hidden"
                                 />
+                                </>
+                                :  
+                                <img
+                                    loading="lazy"
+                                    src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.small_image}`}
+                                    className="rounded-2xl absolute m-auto w-full inset-0"
+                                />
+                                }
+                               
                             </div>
                             <div className="self-center flex grow basis-[0%] flex-col items-stretch my-auto">
                                 <div className=" text-2xl whitespace-nowrap">
