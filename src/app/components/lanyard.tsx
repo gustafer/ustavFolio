@@ -4,6 +4,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import Image from "next/image";
 
 import { useDiscordQuery } from "@/services/discord";
+import { motion } from "framer-motion";
 
 
 const DISCORD_ID = '801073563368947742';
@@ -32,7 +33,11 @@ export default function Lanyard() {
 
     if (lastActivity && data)
         return (
-            <div >
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
                 <div className="flex max-w-[600px] m-auto flex-col items-stretch">
                     <div className="w-full">
                         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
@@ -42,7 +47,7 @@ export default function Lanyard() {
                                     src="/profile.png"
                                     width={500}
                                     height={500}
-                                    alt="Gustavo Image"
+                                    alt="Profile Image"
                                     className="m-auto mb-9 aspect-square rounded-full border border-solid border-zinc-500 object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full lg:mb-0  lg:w-[150px]"
                                 />
                                 {/* <img
@@ -54,14 +59,33 @@ export default function Lanyard() {
                             </div>
                             <div className="flex flex-col items-stretch w-[70%] ml-5 max-md:w-full max-md:ml-0 ">
                                 <div className="bg-zinc-500 bg-opacity-5 flex grow flex-col items-center w-full pl-10 pr-14 pt-1 pb-4 rounded-md border border-solid border-zinc-500">
-                                    <Image
-                                        loading="lazy"
-                                        src='/purplediscordicon.png'
-                                        width={500}
-                                        height={500}
-                                        alt="Discord"
-                                        className="aspect-[1.87] object-contain object-center w-[99px] overflow-hidden max-w-full mt-2"
-                                    />
+                                    <motion.div
+                                        initial={{ opacity: 0.5 }}
+                                        whileTap={
+                                            {
+                                                scale: 2,
+                                                opacity: 1
+                                            }
+
+                                        }
+                                        whileHover={{
+                                            scale: 1.2,
+                                            opacity: 0.85
+                                        }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.15 }}
+                                    >
+                                        <a href="https://discordapp.com/users/801073563368947742">
+                                            <Image
+                                                loading="lazy"
+                                                src='/purplediscordicon.png'
+                                                width={500}
+                                                height={500}
+                                                alt="Discord Image"
+                                                className="aspect-[1.87] object-contain object-center w-[99px] overflow-hidden max-w-full mt-2"
+                                            />
+                                        </a>
+                                    </motion.div>
                                     <div className=" text-5xl self-stretch whitespace-nowrap mt-3 text-center">
                                         @{data?.discord_user.global_name}
                                     </div>
@@ -92,13 +116,13 @@ export default function Lanyard() {
                                     {lastActivity.details}
                                 </div>
                                 <div className=" text-2xl whitespace-nowrap">
-                                     {hourDiff}
+                                    {hourDiff}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         );
     else if (data?.discord_status === `idle` && !lastActivity) return <h2 className="flex flex-inline text-1xl">Ustav is online! but doing nothing.</h2>;
     else return <h2 className="flex flex-inline text-1xl">Ustav is now offline :c</h2>

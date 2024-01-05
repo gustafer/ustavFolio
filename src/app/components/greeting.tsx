@@ -1,3 +1,5 @@
+"use client"
+import { motion } from "framer-motion"
 import Lanyard from "./lanyard"
 import React from "react"
 
@@ -5,7 +7,11 @@ export default function Greeting() {
 
 
     return (
-        <div className="lg:flex flex-row sm:inline">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="lg:flex flex-row sm:inline">
             <div className="lg:w-1/2 mt-24 mb-24 lg:mt-5 lg:mb-0">
                 <div className="py-1 lg:py-24">
                     <h1 className="text-3xl text-center">Hello! you can call me ustav 🤙</h1>
@@ -15,6 +21,6 @@ export default function Greeting() {
             <div className="lg:w-1/2 p-3 mt-10 lg:mt-5 ">
                 <Lanyard />
             </div>
-        </div>
+        </motion.div>
     )
 }
