@@ -10,7 +10,7 @@ export default function Header() {
     const isInView = useInView(ref)
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 border-b border-solid border-zinc-500 bg-zinc-500 bg-opacity-5">
             <div className="navbar">
                 <a className="btn btn-ghost text-3xl ml-2"> <span className="text-slate-700/[.9]">&lt;</span> ustav <span className="text-slate-700/[.9]">/&gt;</span></a>
             </div>
