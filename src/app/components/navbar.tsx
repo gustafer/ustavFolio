@@ -1,11 +1,10 @@
 "use client"
 import React, { useRef } from "react"
 import ToggleTheme from "./toggletheme"
-import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 
 
-export default function Header() {
+export default function Navbar() {
     const ref = useRef(null)
     const isInView = useInView(ref)
 
