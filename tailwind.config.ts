@@ -10,28 +10,6 @@ const config: Config = {
   daisyui: {
     themes: [
       {
-        zeroblack: {
-
-          "primary": "#7e22ce",
-
-          "secondary": "#a855f7",
-
-          "accent": "#c026d3",
-
-          "neutral": "#ffffff",
-
-          "base-100": "#000000",
-
-          "info": "#ffffff",
-
-          "success": "#00ffff",
-
-          "warning": "#ffffff",
-
-          "error": "#ffffff",
-        },
-      },
-      {
         zerowhite: {
 
           "primary": "#9333ea",
@@ -53,6 +31,29 @@ const config: Config = {
           "error": "#dc2626",
         },
       },
+      {
+        zeroblack: {
+
+          "primary": "#7e22ce",
+
+          "secondary": "#a855f7",
+
+          "accent": "#c026d3",
+
+          "neutral": "#ffffff",
+
+          "base-100": "#000000",
+
+          "info": "#ffffff",
+
+          "success": "#00ffff",
+
+          "warning": "#ffffff",
+
+          "error": "#ffffff",
+        },
+      },
+     
     ],
   },
   plugins: [
