@@ -96,16 +96,17 @@ export default function Lanyard() {
                     <div className="bg-zinc-500 bg-opacity-5 flex w-full flex-col items-stretch mt-10 pl-6 pr-11 py-5 rounded-lg border border-solid border-zinc-500">
                         <div className=" text-3xl">Currently on:</div>
                         <div className="flex items-stretch justify-between gap-4 mt-4">
-                            <div className="flex-col overflow-hidden relative flex aspect-square w-[77px] items-center pl-14 pr-1 pt-12 pb-1">
+                            <div className="flex flex-col relative  aspect-square w-[90px] items-center">
                                 {lastActivity.assets?.large_image ? <><img
                                     loading="lazy"
                                     src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.large_image}`}
+                                    width={100}
                                     className="rounded-2xl absolute m-auto w-full inset-0"
                                 />
                                 <img
                                     loading="lazy"
                                     src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.small_image}`}
-                                    className="rounded-full absolute  w-6 shadow-sm  top-14 overflow-hidden"
+                                    className="rounded-full absolute  w-8 shadow-sm  inset-y-20 left-16 overflow-hidden"
                                 />
                                 </>
                                 :  
@@ -120,6 +121,9 @@ export default function Lanyard() {
                             <div className="self-center flex grow basis-[0%] flex-col items-stretch my-auto">
                                 <div className=" text-2xl whitespace-nowrap">
                                     {lastActivity.name}
+                                </div>
+                                <div className=" text-2xl whitespace-nowrap">
+                                    {lastActivity.state}
                                 </div>
                                 <div className=" text-2xl whitespace-nowrap">
                                     {lastActivity.details}
