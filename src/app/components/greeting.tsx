@@ -18,7 +18,7 @@ export default function Greeting() {
           </h1>
           <h2 className="text-2xl lg:text-3xl mt-3">
             I'm a Brazilian 16 y/o front-end developer but also a{" "}
-            <a href="" className="underline">
+            <a href="#" className="underline">
               chemistry and design learner
             </a>
           </h2>
