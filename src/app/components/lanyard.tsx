@@ -48,7 +48,7 @@ export default function Lanyard() {
                                     width={500}
                                     height={500}
                                     alt="Profile Image"
-                                    className=" aspect-square rounded-full border border-solid border-zinc-500 object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full lg:mb-0  lg:w-[150px]"
+                                    className="mb-5 aspect-square rounded-full border border-solid border-zinc-500 object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full lg:mb-0  lg:w-[150px]"
                                 />
                                 {/* <img
                                 loading="lazy"
