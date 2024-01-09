@@ -75,7 +75,7 @@ export default function Lanyard() {
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.15 }}
                                     >
-                                        <a href="https://discordapp.com/users/801073563368947742">
+                                        <a href="https://discordapp.com/users/801073563368947742" target="_blank">
                                             <Image
                                                 loading="lazy"
                                                 src='/purplediscordicon.png'
