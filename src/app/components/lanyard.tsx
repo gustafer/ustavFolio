@@ -41,14 +41,14 @@ export default function Lanyard() {
                 <div className="flex max-w-[600px] m-auto flex-col items-stretch">
                     <div className="w-full">
                         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-                            <div className="flex items-stretch w-[30%] max-md:w-full max-md:ml-0">
+                            <div className="flex justify-center items-center w-[30%] max-md:w-full max-md:ml-0">
                                 <Image
                                     loading="lazy"
                                     src="/profile.png"
                                     width={500}
                                     height={500}
                                     alt="Profile Image"
-                                    className="m-auto mb-9 aspect-square rounded-full border border-solid border-zinc-500 object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full lg:mb-0  lg:w-[150px]"
+                                    className=" aspect-square rounded-full border border-solid border-zinc-500 object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full lg:mb-0  lg:w-[150px]"
                                 />
                                 {/* <img
                                 loading="lazy"
