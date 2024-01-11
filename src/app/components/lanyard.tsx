@@ -1,117 +1,34 @@
 "use client";
-import React, { useCallback, useMemo, useState } from "react";
-
-import Image from "next/image";
-
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useDiscordQuery } from "@/services/discord";
-import { motion } from "framer-motion";
+import LanyardCard from "./lanyardCard";
 
+const INITIAL_STATE = "NA";
 const DISCORD_ID = "801073563368947742";
 
 export default function Lanyard() {
   const { data, isLoading } = useDiscordQuery(DISCORD_ID);
-  const [hourDiff, setHourDiff] = useState<string>(`NA`);
+  const [hourDiff, setHourDiff] = useState<string>(INITIAL_STATE);
 
-  const lastActivity = useMemo(() => data?.activities[0], [data]);
+  const lastActivity = useMemo(() => data?.activities[data.activities.length - 1], [data]);
 
   const toStructure = useCallback((valueDiffer: number): string => {
     const date = new Date(valueDiffer); // specify value for SECONDS here
     return `${date.toISOString().substring(11, 19)} elapsed`;
   }, []);
 
-  setInterval(() => {
-    if (lastActivity)
-      setHourDiff(
-        toStructure(
-          Math.abs(lastActivity.timestamps.start - new Date().valueOf())
-        )
-      );
-  }, 1000);
-
-  function LanyardCard( props: any ) {
-    return (
-        // todo: it bugs every second for some reason when using motiondiv animations
-    <motion.div
-    >
-      <div className="flex max-w-[600px] m-auto flex-col items-stretch">
-        <div className="w-full">
-          <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-            <div className="flex justify-center items-center w-[30%] max-md:w-full max-md:ml-0">
-              <Image
-                loading="lazy"
-                src="/profile.png"
-                width={500}
-                height={500}
-                alt="Profile Image"
-                className="mb-5 aspect-square rounded-full border border-solid border-zinc-500 object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full lg:mb-0  lg:w-[150px]"
-              />
-              {/* <img
-                        loading="lazy"
-                        src="/profile.png"
-                        alt="Gustavo Image"
-                        className="m-auto mb-9 aspect-square object-contain object-center w-[175px] overflow-hidden shrink-0 max-w-full lg:mb-0  lg:w-[150px]"
-                    /> */}
-            </div>
-            <div className="flex flex-col items-stretch w-[70%] ml-5 max-md:w-full max-md:ml-0 ">
-              <div className="bg-zinc-500 bg-opacity-5 flex grow flex-col items-center w-full pl-10 pr-14 pt-1 pb-4 rounded-md border border-solid border-zinc-500">
-                <motion.div
-                  initial={{ opacity: 0.5 }}
-                  whileTap={{
-                    scale: 2,
-                    opacity: 1,
-                  }}
-                  whileHover={{
-                    scale: 1.2,
-                    opacity: 0.85,
-                  }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <a
-                    href="https://discordapp.com/users/801073563368947742"
-                    target="_blank"
-                  >
-                    <Image
-                      loading="lazy"
-                      src="/purplediscordicon.png"
-                      width={500}
-                      height={500}
-                      alt="Discord Image"
-                      className="aspect-[1.87] object-contain object-center w-[99px] overflow-hidden max-w-full mt-2"
-                    />
-                  </a>
-                </motion.div>
-                <div className=" text-5xl self-stretch whitespace-nowrap mt-3 text-center">
-                  {props.username}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="bg-zinc-500 bg-opacity-5 flex w-full flex-col items-stretch mt-10 pl-6 pr-11 py-5 rounded-lg border border-solid border-zinc-500">
-          <div className=" text-3xl">{props.title}</div>
-          <div className="flex items-stretch justify-between gap-4 mt-4">
-            <div className="flex flex-col relative  aspect-square w-[90px] items-center">
-              {props.largeimage}
-            </div>
-            <div className="self-center flex grow basis-[0%] flex-col items-stretch my-auto">
-              <div className=" text-2xl whitespace-nowrap">
-                {props.lastactivityname}
-              </div>
-              <div className=" text-2xl whitespace-nowrap">
-                {props.lastactivitystate}
-              </div>
-              <div className=" text-2xl whitespace-nowrap">
-                {props.lastactivitydetails}
-              </div>
-              <div className=" text-2xl whitespace-nowrap">{props.hourdiff}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-    );
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (lastActivity && lastActivity.timestamps)
+        setHourDiff(
+          toStructure(
+            Math.abs(lastActivity.timestamps.start - new Date().valueOf())
+          )
+        );
+      else setHourDiff(INITIAL_STATE);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [lastActivity]);
 
   if (isLoading || !data)
     return (
@@ -122,72 +39,98 @@ export default function Lanyard() {
 
   if (lastActivity && data)
     return (
-    <>
-        <LanyardCard 
-        title="Currently on:"
-        username={`@` + data?.discord_user.global_name}
-        largeimage={lastActivity.assets?.large_image ? (
+      <>
+        <LanyardCard
+          title="Currently on:"
+          username={`@` + data?.discord_user.global_name}
+          image={
             <>
-              <img
-                loading="lazy"
-                src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.large_image}`}
-                width={100}
-                className="rounded-2xl absolute m-auto w-full inset-0"
-              />
-              <img
-                loading="lazy"
-                src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.small_image}`}
-                className="rounded-full absolute  w-8 shadow-sm  inset-y-20 left-16 overflow-hidden"
-              />
+              {lastActivity.assets?.large_image ? (
+                <img
+                  loading="lazy"
+                  src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.large_image}`}
+                  width={100}
+                  className="rounded-2xl absolute m-auto w-full inset-0"
+                />
+              ) : (
+                <></>
+              )}
+              {lastActivity.assets?.small_image &&
+              lastActivity.assets?.large_image ? (
+                <img
+                  loading="lazy"
+                  src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.small_image}`}
+                  className="rounded-full absolute  w-8 shadow-sm  inset-y-20 left-16 overflow-hidden"
+                />
+              ) : (
+                <></>
+              )}
+              {lastActivity.assets?.small_image &&
+              !lastActivity.assets?.large_image ? (
+                <img
+                  loading="lazy"
+                  src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.small_image}`}
+                  className="rounded-2xl absolute m-auto w-full inset-0"
+                />
+              ) : (
+                <></>
+              )}
+              {!lastActivity.assets?.small_image &&
+              !lastActivity.assets?.large_image ? (
+                <img
+                  loading="lazy"
+                  src={`https://yt3.googleusercontent.com/Ef_ZAG00wH4s02r9xYlD3j_ftVFKVahGGOQ6iEhNU5_7ZrYBR8sogDYzaz0Lxy05XuSA9JU88w=s900-c-k-c0x00ffffff-no-rj`}
+                  className="rounded-2xl absolute m-auto w-full inset-0"
+                />
+              ) : (
+                <></>
+              )}
             </>
-          ) : (
-            <img
-              loading="lazy"
-              src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.small_image}`}
-              className="rounded-2xl absolute m-auto w-full inset-0"
-            />
-          )}
-        lastactivityname={lastActivity.name}
-        lastactivitystate={lastActivity.state}
-        lastactivitydetails={lastActivity.details}
-        hourdiff={hourDiff}
+          }
+          lastActivityName={lastActivity.name}
+          lastActivityState={lastActivity.state}
+          lastActivityDetails={lastActivity.details}
+          hourDiff={hourDiff}
         />
       </>
     );
   else if (data?.discord_status === `idle` && !lastActivity)
     return (
-        <LanyardCard 
+      <LanyardCard
         title="Ustav is online!"
         username={`@` + data?.discord_user.global_name}
-        largeimage={
-            <>
-              <img
-                loading="lazy"
-                src={`https://cdn3.emoji.gg/emojis/3929_idle.png`}
-                className="rounded-2xl absolute m-auto w-10 inset-0"
-              />
-            </>
-          }
-        lastactivityname="Currently idling."
-        />
+        image={
+          <>
+            <img
+              loading="lazy"
+              src={`https://cdn3.emoji.gg/emojis/3929_idle.png`}
+              className="rounded-2xl absolute m-auto w-10 inset-0"
+            />
+          </>
+        }
+        lastActivityName="Currently idling."
+      />
     );
   else
     return (
-        <LanyardCard 
+      <LanyardCard
         title="Ustav is now offline"
         username={`@` + data?.discord_user.global_name}
-        largeimage={
-            <>
-              <img
-                loading="lazy"
-                src={`https://cdn3.emoji.gg/emojis/7445_status_offline.png`}
-                className="rounded-2xl absolute m-auto w-10 inset-0"
-              />
-            </>
-          }
-        lastactivityname={"Maybe check out his " + 
-        // todo: change this to anchor
-        "skills" + "?"}
-        />
+        image={
+          <>
+            <img
+              loading="lazy"
+              src={`https://cdn3.emoji.gg/emojis/7445_status_offline.png`}
+              className="rounded-2xl absolute m-auto w-10 inset-0"
+            />
+          </>
+        }
+        lastActivityName={
+          "Maybe check out his " +
+          // todo: change this to anchor
+          "skills" +
+          "?"
+        }
+      />
     );
 }
