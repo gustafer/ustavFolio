@@ -21,7 +21,7 @@ const LanyardCard = (props: LanyardCardProps) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       >
-        <div className="flex max-w-[600px] m-auto flex-col items-stretch">
+        <div className="flex max-w-[600px] m-auto flex-col items-stretch p-3">
           <div className="w-full">
             <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
               <div className="flex justify-center items-center w-[30%] max-md:w-full max-md:ml-0">
