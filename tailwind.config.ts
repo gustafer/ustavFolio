@@ -1,63 +1,62 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  
+
   daisyui: {
     themes: [
       {
-        zerowhite: {
+        newmoon: {
 
-          "primary": "#9333ea",
+          "primary": "#6b21a8",
 
-          "secondary": "#ffffff",
+          "secondary": "#c026d3",
 
-          "accent": "#881337",
+          "accent": "#1d4ed8",
 
-          "neutral": "#ededed",
-
-          "base-100": "#f4f4f4",
-
-          "info": "#00ffff",
-
-          "success": "#4ade80",
-
-          "warning": "#ffff00",
-
-          "error": "#dc2626",
-        },
-      },
-      {
-        zeroblack: {
-
-          "primary": "#7e22ce",
-
-          "secondary": "#a855f7",
-
-          "accent": "#c026d3",
-
-          "neutral": "#050505",
+          "neutral": "#2a1717",
 
           "base-100": "#000000",
 
-          "info": "#ffffff",
+          "base-200": "#030303",
 
-          "success": "#00ffff",
+          "info": "#007dff",
 
-          "warning": "#ffffff",
+          "success": "#009441",
 
-          "error": "#ffffff",
+          "warning": "#fcd34d",
+
+          "error": "#be185d",
+        },
+        newsun: {
+
+          "primary": "#6b21a8",
+
+          "secondary": "#c026d3",
+
+          "accent": "#1d4ed8",
+
+          "neutral": "#2a1717",
+
+          "base-100": "#ffffff",
+
+          "base-200": "#f7f7f7",
+
+          "info": "#007dff",
+
+          "success": "#009441",
+
+          "warning": "#fcd34d",
+
+          "error": "#be185d",
         },
       },
-     
     ],
   },
-  plugins: [
-    require('daisyui'),
-  ],
-}
-export default config
+  plugins: [require("daisyui")],
+};
+export default config;
