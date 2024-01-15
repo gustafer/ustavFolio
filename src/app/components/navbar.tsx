@@ -9,7 +9,7 @@ export default function Navbar() {
     const isInView = useInView(ref)
 
     return (
-        <div className="fixed navbar bg-base-100 border-b border-solid border-zinc-500 bg-zinc-500 bg-opacity-5">
+        <div className="fixed navbar bg-neutral border-b border-solid border-zinc-500">
             <div className="navbar">
                 <a className="btn btn-ghost text-3xl ml-2"> <span className="text-slate-700/[.9]">&lt;</span> ustav <span className="text-slate-700/[.9]">/&gt;</span></a>
             </div>
@@ -18,7 +18,7 @@ export default function Navbar() {
                 <summary className="m-1 btn lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg></summary>
                 <ul
 
-                    className="p-2 shadow dropdown-content z-[1]  border border-solid border-zinc-500 rounded-2xl backdrop-blur bg-base-100 bg-opacity-75">
+                    className="p-2 shadow dropdown-content z-[1] bg-neutral  border border-solid border-zinc-500 rounded-2xl backdrop-blur bg-opacity-75">
                     <section ref={ref}>
                         <span style={{
                             transform: isInView ? "none" : "translateX(-200px)",
