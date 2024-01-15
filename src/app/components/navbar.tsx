@@ -38,7 +38,7 @@ export default function Navbar() {
                 </ul>
             </details>
             {/* desktop navbar*/}
-            <div className=" hidden lg:flex fixed right-10 ">
+            <div className=" hidden lg:flex absolute right-10 ">
                 <ul className="menu menu-horizontal px-1">
                     <a className="btn btn-ghost text-2xl "> Education </a>
                     <a className="btn btn-ghost text-2xl "> Skills </a>
