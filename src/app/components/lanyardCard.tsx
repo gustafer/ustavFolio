@@ -42,18 +42,7 @@ const LanyardCard = (props: LanyardCardProps) => {
               </div>
               <div className="flex flex-col items-stretch w-[70%] ml-5 max-md:w-full max-md:ml-0 ">
                 <div className="bg-base-200 flex grow flex-col items-center w-full pl-10 pr-14 pt-1 pb-4 rounded-md border border-solid border-zinc-500">
-                  <motion.div
-                    initial={{ opacity: 0.5 }}
-                    whileTap={{
-                      scale: 2,
-                      opacity: 1,
-                    }}
-                    whileHover={{
-                      scale: 1.2,
-                      opacity: 0.85,
-                    }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.15 }}
+                  <div
                   >
                     <a
                       href="https://discordapp.com/users/801073563368947742"
@@ -65,10 +54,10 @@ const LanyardCard = (props: LanyardCardProps) => {
                         width={500}
                         height={500}
                         alt="Discord Image"
-                        className="aspect-[1.87] object-contain object-center w-[99px] overflow-hidden max-w-full mt-2"
+                        className="w-[99px] pt-2"
                       />
                     </a>
-                  </motion.div>
+                  </div>
                   <div className=" text-5xl self-stretch whitespace-nowrap mt-3 text-center">
                     {props.username}
                   </div>

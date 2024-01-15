@@ -9,7 +9,7 @@ export default function Navbar() {
     const isInView = useInView(ref)
 
     return (
-        <div className="fixed navbar bg-base-200 border-b border-solid border-zinc-500">
+        <div className="fixed navbar bg-base-200 border-b border-solid border-zinc-500 transition-colors duration-100">
             <div className="navbar">
                 <a className="btn btn-ghost text-3xl ml-2"> <span className="text-slate-700/[.9]">&lt;</span> ustav <span className="text-slate-700/[.9]">/&gt;</span></a>
             </div>
