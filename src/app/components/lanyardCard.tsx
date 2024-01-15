@@ -41,7 +41,7 @@ const LanyardCard = (props: LanyardCardProps) => {
                     /> */}
               </div>
               <div className="flex flex-col items-stretch w-[70%] ml-5 max-md:w-full max-md:ml-0 ">
-                <div className="bg-neutral flex grow flex-col items-center w-full pl-10 pr-14 pt-1 pb-4 rounded-md border border-solid border-zinc-500">
+                <div className="bg-base-200 flex grow flex-col items-center w-full pl-10 pr-14 pt-1 pb-4 rounded-md border border-solid border-zinc-500">
                   <motion.div
                     initial={{ opacity: 0.5 }}
                     whileTap={{
@@ -76,7 +76,7 @@ const LanyardCard = (props: LanyardCardProps) => {
               </div>
             </div>
           </div>
-          <div className="bg-neutral flex w-full flex-col items-stretch mt-10 pl-6 pr-11 py-5 rounded-lg border border-solid border-zinc-500">
+          <div className="bg-base-200 flex w-full flex-col items-stretch mt-10 pl-6 pr-11 py-5 rounded-lg border border-solid border-zinc-500">
             <div className=" text-3xl">{props.title}</div>
             <div className="flex items-stretch justify-between gap-4 mt-4">
               <div className="flex flex-col relative  aspect-square min-w-[90px] items-center">
