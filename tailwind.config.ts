@@ -18,9 +18,9 @@ const config: Config = {
 
           "accent": "#881337",
 
-          "neutral": "#f3f4f6",
+          "neutral": "#ededed",
 
-          "base-100": "#f5f5f4",
+          "base-100": "#f4f4f4",
 
           "info": "#00ffff",
 
@@ -40,7 +40,7 @@ const config: Config = {
 
           "accent": "#c026d3",
 
-          "neutral": "#ffffff",
+          "neutral": "#050505",
 
           "base-100": "#000000",
 
