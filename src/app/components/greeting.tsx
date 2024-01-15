@@ -9,9 +9,9 @@ export default function Greeting() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex-row lg:flex"
+      className="flex-row lg:flex pt-24"
     >
-      <div className=" mt-10 lg:mt-10 lg:w-1/2 lg:mt-5 lg:mb-0 ">
+      <div className="lg:w-1/2 lg:mb-0 ">
         <div className="p-10 flex flex-col  justify-center w-full h-full ">
           <h1 className="text-3xl lg:text-4xl ">
             Hello! you can call me ustav 🤙
@@ -24,7 +24,7 @@ export default function Greeting() {
           </h2>
         </div>
       </div>
-      <div className="lg:w-1/2 p-3 mt-10 lg:mt-5 ">
+      <div className="lg:w-1/2 p-3 ">
         <Lanyard />
       </div>
     </motion.div>
