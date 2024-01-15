@@ -9,19 +9,20 @@ export default function Greeting() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex-row lg:flex pt-24"
+      className="flex-row lg:flex pt-24 transition-colors duration-1000"
     >
       <div className="lg:w-1/2 lg:mb-0 ">
-        <div className="p-10 flex flex-col  justify-center w-full h-full ">
-          <h1 className="text-3xl lg:text-4xl ">
-            Hello! you can call me ustav 🤙
-          </h1>
-          <h2 className="text-2xl lg:text-3xl mt-3">
-            I'm a Brazilian 16 y/o front-end developer but also a{" "}
-            <a href="#" className="underline">
-              chemistry and design learner
-            </a>
-          </h2>
+        <div className="p-10 lg:p-20 flex flex-col  justify-center w-full h-full ">
+            <h1 className="text-3xl lg:text-4xl pb-3">
+              Hello!
+            </h1>
+            <h2 className="text-2xl lg:text-3xl mt-3 pb-10">
+              I'm a Brazilian 16 y/o front-end developer.
+            </h2>
+          <div className="flex flex-row w-full justify-center items-center gap-5 p-5">
+            <button className="g-2 flex btn bg-base-200 border border-solid border-zinc-500 text-lg hover:border-base-300">Contact Me</button>
+            <button className="g-2 flex btn bg-base-200 border border-solid border-zinc-500 text-lg hover:border-base-300">Read More</button>
+          </div>
         </div>
       </div>
       <div className="lg:w-1/2 p-3 ">
