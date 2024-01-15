@@ -83,8 +83,8 @@ const LanyardCard = (props: LanyardCardProps) => {
                 {props.image}
               </div>
               <div className="self-center flex grow basis-[0%] flex-col items-stretch my-auto overflow-auto">
-                <div className=" text-xl lg:text-2xl whitespace-nowrap">
-                  {props.lastActivityName}
+                <div className=" text-2xl lg:text-2xl whitespace-nowrap">
+                {props.lastActivityName}
                 </div>
                 <div className=" text-xl lg:text-2xl whitespace-nowrap">
                   {props.lastActivityState}
