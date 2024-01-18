@@ -50,7 +50,7 @@ export default function Lanyard() {
                   loading="lazy"
                   src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.large_image}`}
                   width={100}
-                  className="rounded-2xl absolute m-auto w-full inset-0"
+                  className="rounded-2xl m-auto inset-0"
                 />
               ) : (
                 <></>
@@ -60,10 +60,9 @@ export default function Lanyard() {
                 <img
                   loading="lazy"
                   src={`https://cdn.discordapp.com/app-assets/${lastActivity.application_id}/${lastActivity.assets?.small_image}`}
-                  className="rounded-full absolute  w-8 shadow-sm  inset-y-20 left-16 overflow-hidden"
+                  className="rounded-full absolute  w-10 shadow-sm  inset-y-20 left-16 overflow-hidden"
                 />
-              ) : (
-                <></>
+              ) : ( <></>
               )}
               {lastActivity.assets?.small_image &&
               !lastActivity.assets?.large_image ? (
