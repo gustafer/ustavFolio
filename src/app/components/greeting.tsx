@@ -9,7 +9,7 @@ export default function Greeting() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex-row lg:flex pt-24 transition-colors duration-1000"
+      className="flex-row lg:flex pt-24 transition-colors duration-500"
     >
       <div className="lg:w-1/2 lg:mb-0 ">
         <div className="p-10 lg:p-20 flex flex-col  justify-center w-full h-full ">
